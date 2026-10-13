@@ -11,6 +11,11 @@ namespace Test
             CitiesList cList = cdb.SelectAll();
             foreach (Cities c in cList)
                 Console.WriteLine(c.City_name);
+
+            //ProfileDB pdb = new();
+            //ProfileList pList = pdb.SelectAll();
+            //foreach (Profile p in pList)
+            //    Console.WriteLine(p.City);
         }
     }
 }

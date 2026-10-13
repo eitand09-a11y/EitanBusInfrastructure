@@ -26,8 +26,23 @@ namespace ViewModel
         {
             Cities c = entity as Cities;
             c.City_name = reader["City_name"].ToString();
+            c.Transliteration = reader["transliteration"].ToString();
+            c.Religion = (int)reader["Religion"];
+            c.Population = (int)reader["Population"];
+            c.Cordinates = (int)reader["Coordinates"];
             base.CreateModel(entity);
             return entity;
+        }
+
+        public static CitiesList list;
+
+        public static Cities SelectById(int id)
+        {
+            CitiesDB db = new CitiesDB();
+            list = db.SelectAll();
+
+            Cities c = list.Find(item => item.Id == id);
+            return c;
         }
     }
 }
