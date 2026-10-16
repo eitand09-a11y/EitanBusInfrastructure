@@ -10,14 +10,14 @@ namespace EitanBudInfrastructure
     {
         private string city_name;
         private string transliteration;
-        private int religion;
+        private int region;
         private int population;
-        private int cordinates;
+        private string cordinates;
 
         public string City_name { get => city_name; set => city_name = value; }
         public string Transliteration { get => transliteration; set => transliteration = value; }
-        public int Religion { get => religion; set => religion = value; }
+        public int Region { get => region; set => region = value; }
         public int Population { get => population; set => population = value; }
-        public int Cordinates { get => cordinates; set => cordinates = value; }
+        public string Cordinates { get => cordinates; set => cordinates = value; }
     }
 }

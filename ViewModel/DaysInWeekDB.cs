@@ -8,7 +8,7 @@ using System.Data.OleDb;
 
 namespace ViewModel
 {
-    public class DayInWeekDB : BaseDB
+    public class DaysInWeekDB : BaseDB
     {
         public DaysInWeekList SelectAll()
         {
@@ -19,7 +19,7 @@ namespace ViewModel
 
         public override BaseEntity NewEntity()
         {
-            throw new NotImplementedException();
+            return new DaysInWeek();
         }
 
         protected override BaseEntity CreateModel(BaseEntity entity)
@@ -28,6 +28,17 @@ namespace ViewModel
             d.Day = reader["day"].ToString();
             base.CreateModel(entity);
             return entity;
+        }
+
+        public static DaysInWeekList list;
+
+        public static DaysInWeek SelectById(int id)
+        {
+            DaysInWeekDB db = new DaysInWeekDB();
+            list = db.SelectAll();
+
+            DaysInWeek d = list.Find(item => item.Id == id);
+            return d;
         }
     }
 }

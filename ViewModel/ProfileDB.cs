@@ -19,7 +19,7 @@ namespace ViewModel
 
         public override BaseEntity NewEntity()
         {
-            throw new NotImplementedException();
+            return new Profile();
         }
 
         protected override BaseEntity CreateModel(BaseEntity entity)
@@ -30,7 +30,7 @@ namespace ViewModel
             p.Phone_number = reader["phone_number"].ToString();
             p.Email = reader["email"].ToString();
             p.Pass = reader["pass"].ToString();
-            p.Is_active = Convert.ToBoolean(reader["pass"].ToString());
+            p.Is_active = Convert.ToBoolean(reader["is_active"].ToString());
             p.City = CitiesDB.SelectById((int)reader["city"]);
             base.CreateModel(entity);
             return entity;

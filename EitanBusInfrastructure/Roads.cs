@@ -8,16 +8,20 @@ namespace EitanBudInfrastructure
 {
     public class Roads:BaseEntity
     {
-        private Streets start_point;
-        private Streets end_point;
+        private string start_latitude;
+        private string start_longitude;
+        private string end_latitude;
+        private string end_longitude;
         private TimeOnly arrival_time;
-        private DayOfWeek day;
-        private Profile id_user;
+        private DaysInWeek day;
+        private Profile profile_id;
 
-        public Streets Start_point { get => start_point; set => start_point = value; }
-        public Streets End_point { get => end_point; set => end_point = value; }
+        public string Start_latitude { get => start_latitude; set => start_latitude = value; }
+        public string Start_longitude { get => start_longitude; set => start_longitude = value; }
+        public string End_latitude { get => end_latitude; set => end_latitude = value; }
+        public string End_longitude { get => end_longitude; set => end_longitude = value; }
         public TimeOnly Arrival_time { get => arrival_time; set => arrival_time = value; }
-        public DayOfWeek Day { get => day; set => day = value; }
-        public Profile Id_user { get => id_user; set => id_user = value; }
+        public DaysInWeek Day { get => day; set => day = value; }
+        public Profile Profile_id { get => profile_id; set => profile_id = value; }
     }
 }

@@ -26,10 +26,10 @@ namespace ViewModel
         {
             Cities c = entity as Cities;
             c.City_name = reader["City_name"].ToString();
-            c.Transliteration = reader["transliteration"].ToString();
-            c.Religion = (int)reader["Religion"];
-            c.Population = (int)reader["Population"];
-            c.Cordinates = (int)reader["Coordinates"];
+            c.Transliteration = reader["Transliteration"].ToString();
+            c.Region = reader["Region"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Region"]); // פתרון לעמודות עם NULL
+            c.Population = reader["Population"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Population"]); // שם 0 אם NULL
+            c.Cordinates = reader["Coordinates"].ToString();
             base.CreateModel(entity);
             return entity;
         }
