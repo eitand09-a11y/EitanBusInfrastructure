@@ -30,7 +30,7 @@ namespace ViewModel
             r.Start_longitude = reader["Start_longitude"].ToString();
             r.End_latitude = reader["End_latitude"].ToString();
             r.End_longitude = reader["End_longitude"].ToString();
-            r.Arrival_time = TimeOnly.FromTimeSpan((TimeSpan)reader["Arrival_time"]); // המרה לTIMEONLY
+            r.Arrival_time = TimeOnly.Parse(reader["Arrival_time"].ToString()); // המרה לTIMEONLY
             r.Day = DaysInWeekDB.SelectById(Convert.ToInt32(reader["Day"]));
             r.Profile_id = ProfileDB.SelectById((int)reader["Profile_id"]);
             base.CreateModel(entity);

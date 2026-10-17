@@ -21,6 +21,7 @@ namespace ViewModel
 
         //C:\Users\User\source\repos\EitanBusProject\ViewModel\BusInfrastructure.accdb
         //Provider=Microsoft.ACE.OLEDB.12.0;Data Source = C:\Users\danie\source\repos\eitand09-a11y\EitanBusInfrastructure\ViewModel\BusDB.accdb;Persist Security Info=True
+        //Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\danie\source\repos\eitand09-a11y\EitanBusInfrastructure\ViewModel\BusDB.accdb;Persist Security Info=True
 
         protected static OleDbConnection connection;
         protected OleDbCommand command;
