@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EitanBudInfrastructure;
+using EitanBusInfrastructure;
 using System.Data.OleDb;
 
 namespace ViewModel
@@ -39,6 +39,29 @@ namespace ViewModel
 
             DaysInWeek d = list.Find(item => item.Id == id);
             return d;
+        }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            DaysInWeek d = entity as DaysInWeek;
+            if (d != null)
+            {
+                string sqlStr = "UPDATE DaysInWeek SET day=@day WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@day", d.Day));
+                command.Parameters.Add(new OleDbParameter("@id", d.Id));
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using EitanBudInfrastructure;
-using EitanBusInfrastructure;
+﻿using EitanBusInfrastructure;
 using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
@@ -46,6 +45,21 @@ namespace ViewModel
 
             Roads r = list.Find(item => item.Id == id);
             return r;
+        }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
         }
     }
 }

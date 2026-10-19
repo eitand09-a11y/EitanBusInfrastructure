@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EitanBudInfrastructure
+namespace EitanBusInfrastructure
 {
     public class ProfileList:List<Profile>
     {

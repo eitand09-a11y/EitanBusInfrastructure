@@ -1,7 +1,7 @@
-﻿using EitanBudInfrastructure;
-using EitanBusInfrastructure;
+﻿using EitanBusInfrastructure;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +41,21 @@ namespace ViewModel
 
             BusLineStops b = list.Find(item => item.Id == id);
             return b;
+        }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
         }
     }
 }

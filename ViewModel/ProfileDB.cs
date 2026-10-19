@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EitanBudInfrastructure;
+using EitanBusInfrastructure;
 using System.Data.OleDb;
 
 namespace ViewModel
@@ -45,6 +45,21 @@ namespace ViewModel
 
             Profile p = list.Find(item => item.Id == id);
             return p;
+        }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
         }
     }
 }

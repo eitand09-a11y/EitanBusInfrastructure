@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EitanBudInfrastructure;
+using EitanBusInfrastructure;
 using System.Data.OleDb;
 
 namespace ViewModel
