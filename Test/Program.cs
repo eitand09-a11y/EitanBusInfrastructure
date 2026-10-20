@@ -10,7 +10,7 @@ namespace Test
             CitiesDB cdb = new();
             CitiesList cList = cdb.SelectAll();
             foreach (Cities c in cList)
-                Console.WriteLine(c.City_name + ", " + c.Region);
+                Console.WriteLine(c.City_name + ", " + c.Region.Id);
 
             Cities cityToUpdate = cList[0];
             cityToUpdate.Transliteration += "yyy";

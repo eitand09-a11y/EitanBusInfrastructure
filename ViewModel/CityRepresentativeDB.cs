@@ -39,5 +39,15 @@ namespace ViewModel
             CityRepresentative cr = list.Find(item => item.Id == id);
             return cr;
         }
+
+        public override void Update(BaseEntity entity)
+        {
+            CityRepresentative cityRepresentative = entity as CityRepresentative;
+            if (cityRepresentative != null)
+            {
+                updated.Add(new ChangeEntity(this.CreateUpdatedSQL, entity));
+                updated.Add(new ChangeEntity(base.CreateUpdatedSQL, entity));
+            }
+        }
     }
 }
