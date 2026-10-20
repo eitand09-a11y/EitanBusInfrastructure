@@ -56,7 +56,22 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            BusLines bl = entity as BusLines;
+            if (bl != null)
+            {
+                string sqlStr = "UPDATE BusLines SET [Line_number]=@lineNumber, [City_id]=@cityId, [Average_daily_passangers]=@passangers, [Frequency_minutes]=@frequency, [Is_forward]=@isForward, [Start_stop]=@start, [End_stop]=@end " +
+                    "WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@lineNumber", bl.Line_number));
+                command.Parameters.Add(new OleDbParameter("@cityId", bl.City_id.Id));
+                command.Parameters.Add(new OleDbParameter("@passangers", bl.Average_daily_passangers));
+                command.Parameters.Add(new OleDbParameter("@frequency", bl.Frequency_minutes));
+                command.Parameters.Add(new OleDbParameter("@isForward", bl.Is_forward));
+                command.Parameters.Add(new OleDbParameter("@start", bl.Start_stop.Id));
+                command.Parameters.Add(new OleDbParameter("@end", bl.End_stop.Id));
+                command.Parameters.Add(new OleDbParameter("@id", bl.Id));
+            }
         }
     }
 }

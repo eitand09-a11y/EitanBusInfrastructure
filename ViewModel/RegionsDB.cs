@@ -53,7 +53,16 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            Regions r = entity as Regions;
+            if (r != null)
+            {
+                string sqlStr = "UPDATE Regions SET [region_name]=@regionName " +
+                    "WHERE id=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@regionName", r.Region_name));
+                command.Parameters.Add(new OleDbParameter("@id", r.Id));
+            }
         }
     }
 }

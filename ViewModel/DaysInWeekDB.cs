@@ -56,7 +56,8 @@ namespace ViewModel
             DaysInWeek d = entity as DaysInWeek;
             if (d != null)
             {
-                string sqlStr = "UPDATE DaysInWeek SET day=@day WHERE ID=@id";
+                string sqlStr = "UPDATE DaysInWeek SET [day]=@day " +
+                    "WHERE ID=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@day", d.Day));

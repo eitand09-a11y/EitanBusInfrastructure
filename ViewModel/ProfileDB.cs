@@ -59,7 +59,22 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            Profile p = entity as Profile;
+            if (p != null)
+            {
+                string sqlStr = "UPDATE Profile SET [first_name]=@firstName, [last_name]=@lastName, [phone_number]=@phone_number, [email]=@email, [pass]=@pass, [is_active]=@isActive, [city]=@city " +
+                    "WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@firstName", p.First_name));
+                command.Parameters.Add(new OleDbParameter("@lastName", p.Last_name));
+                command.Parameters.Add(new OleDbParameter("@phone_number", p.Phone_number));
+                command.Parameters.Add(new OleDbParameter("@email", p.Email));
+                command.Parameters.Add(new OleDbParameter("@pass", p.Pass));
+                command.Parameters.Add(new OleDbParameter("@isActive", p.Is_active));
+                command.Parameters.Add(new OleDbParameter("@city", p.City.Id));
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
     }
 }
