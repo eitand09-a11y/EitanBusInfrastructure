@@ -48,7 +48,14 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            DaysInWeek d = entity as DaysInWeek;
+            if (d != null)
+            {
+                string sqlStr = "INSERT INTO DaysInWeek ([day]) VALUES (@day)";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@day", d.Day));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

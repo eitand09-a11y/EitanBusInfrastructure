@@ -27,7 +27,7 @@ namespace ViewModel
             Cities c = entity as Cities;
             c.City_name = reader["City_name"].ToString();
             c.Transliteration = reader["Transliteration"].ToString();
-            c.Region = RegionsDB.SelectById((int)reader["Region"]);
+            c.Region = RegionsDB.SelectById(reader["Region"] == DBNull.Value ? 0 : (int)reader["Region"]);
             c.Population = reader["Population"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Population"]); // שם 0 אם NULL
             c.Cordinates = reader["Coordinates"].ToString();
             base.CreateModel(entity);

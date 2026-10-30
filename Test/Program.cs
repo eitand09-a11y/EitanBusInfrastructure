@@ -31,22 +31,29 @@ namespace Test
             Console.WriteLine($"{x} rows were updated");
             Console.WriteLine(dayToUpdate.Day);
 
+            DaysInWeek brandNewDay = new DaysInWeek() { Day = "brand new day" };
+            ddb.Insert(brandNewDay);
+            int q = ddb.SaveChanges();
+            Console.WriteLine($"{q} rows inserted:");
+            foreach (DaysInWeek d in dList)
+                Console.WriteLine(d.Day);
+
             //BusStopsDB bdb = new();
             //BusStopsList bList = bdb.SelectAll();
             //foreach (BusStops b in bList)
             //    Console.WriteLine(b.Stop_name + ", " + b.Stop_number);
 
-            ProfileDB pdb = new();
-            ProfileList pList = pdb.SelectAll();
-            foreach (Profile p in pList)
-                Console.WriteLine(p.City);
+            //ProfileDB pdb = new();
+            //ProfileList pList = pdb.SelectAll();
+            //foreach (Profile p in pList)
+            //    Console.WriteLine(p.City);
 
-            Profile profileToUpdate = pList[0];
-            profileToUpdate.First_name += "yyyy";
-            pdb.Update(profileToUpdate);
-            int z = pdb.SaveChanges();
-            Console.WriteLine($"{z} rows were updated");
-            Console.WriteLine(profileToUpdate.First_name);
+            //Profile profileToUpdate = pList[0];
+            //profileToUpdate.First_name += "yyyy";
+            //pdb.Update(profileToUpdate);
+            //int z = pdb.SaveChanges();
+            //Console.WriteLine($"{z} rows were updated");
+            //Console.WriteLine(profileToUpdate.First_name);
 
             //BusLinesDB bldb = new();
             //BusLinesList blList = bldb.SelectAll();
@@ -67,18 +74,18 @@ namespace Test
             //CityRepresentativeList crList = crdb.SelectAll();
             //foreach (CityRepresentative cr in crList)
             //    Console.WriteLine(cr.Phone_number);
+            
+            //RegionsDB rsdb = new();
+            //RegionsList rsList = rsdb.SelectAll();
+            //foreach (Regions rs in rsList)
+            //    Console.WriteLine(rs.Region_name);
 
-            RegionsDB rsdb = new();
-            RegionsList rsList = rsdb.SelectAll();
-            foreach (Regions rs in rsList)
-                Console.WriteLine(rs.Region_name);
-
-            Regions regionToUpdate = rsList[0];
-            regionToUpdate.Region_name += "yyyy";
-            rsdb.Update(regionToUpdate);
-            int y = rsdb.SaveChanges();
-            Console.WriteLine($"{x} rows were updated");
-            Console.WriteLine(regionToUpdate.Region_name);
+            //Regions regionToUpdate = rsList[0];
+            //regionToUpdate.Region_name += "yyyy";
+            //rsdb.Update(regionToUpdate);
+            //int y = rsdb.SaveChanges();
+            //Console.WriteLine($"{x} rows were updated");
+            //Console.WriteLine(regionToUpdate.Region_name);
         }
     }
 }
